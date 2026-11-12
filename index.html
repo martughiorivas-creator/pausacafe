@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PAUSA café | Tu pausa en Palermo</title>
+  <meta name="description" content="PAUSA es un café de especialidad en Palermo, con buena compañía y un cuaderno donde dejamos algo lindo escrito.">
+  <meta name="theme-color" content="#f7e493">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header__barra">
+      <a class="logo" href="index.html" aria-label="PAUSA café, ir al inicio">PAUSA</a>
+      <input class="nav-check" type="checkbox" id="nav-toggle" aria-label="Abrir o cerrar el menú">
+      <label class="hamburguesa" for="nav-toggle" aria-hidden="true"><span></span><span></span><span></span></label>
+      <nav class="nav" aria-label="Navegación principal">
+        <ul>
+          <li><a href="index.html" aria-current="page">Home</a></li>
+          <li><a href="menu.html">Menú</a></li>
+          <li><a href="ubicacion.html">Ubicación</a></li>
+          <li><a href="tomate-una-pausa.html">Tomate una pausa</a></li>
+          <li><a href="tienda.html">Tienda</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero mantel mantel--cuadros" aria-labelledby="t-home">
+      <div class="hero__logo">
+        <h1 class="titulo-xl" id="t-home">PAUSA</h1>
+        <p class="hero__cafe">café</p>
+      </div>
+    </section>
+
+    <section class="bloque bloque--bordo presentacion" aria-labelledby="t-presentacion">
+      <div class="contenido">
+        <h2 class="titulo-l" id="t-presentacion">Tu pausa en Palermo</h2>
+        <p class="bajada">Café de especialidad, buena compañía y un cuaderno donde dejamos algo lindo escrito cada vez que pasamos por acá.</p>
+      </div>
+    </section>
+
+    <div class="franja" aria-hidden="true"></div>
+
+    <div class="foto-ancha">
+      <video autoplay muted loop playsinline poster="img/hero-cuaderno.jpg" aria-label="Una chica leyendo el cuaderno de PAUSA en una mesa con café y medialuna">
+        <source src="img/video.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <section class="bloque bloque--bordo intriga" aria-labelledby="t-intriga">
+      <div class="contenido">
+        <h2 class="titulo-l" id="t-intriga">Algo se está escribiendo acá</h2>
+        <p class="bajada">Entre café y café, algo pasa en las mesas de <strong>PAUSA</strong> que no está en el menú. Quizás también quieras dejar tu marca.</p>
+        <p class="bajada descubri">Descubrí de qué se trata</p>
+        <a class="boton boton--crema" href="tomate-una-pausa.html">Tomate una pausa</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p class="footer__copy">© 2026 - Martina Ghio Rivas. All rights reserved</p>
+    <nav class="footer__nav" aria-label="Navegación del pie">
+      <ul>
+        <li><a href="menu.html">Menú</a></li>
+        <li><a href="ubicacion.html">Ubicación</a></li>
+        <li><a href="tomate-una-pausa.html">Tomate una pausa</a></li>
+        <li><a href="tienda.html">Tienda</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </footer>
+</body>
+</html>

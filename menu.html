@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Menú | PAUSA café</title>
+  <meta name="description" content="Carta de PAUSA: bebidas calientes, bebidas frías y algo para acompañar.">
+  <meta name="theme-color" content="#f7e493">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header__barra">
+      <a class="logo" href="index.html" aria-label="PAUSA café, ir al inicio">PAUSA</a>
+      <input class="nav-check" type="checkbox" id="nav-toggle" aria-label="Abrir o cerrar el menú">
+      <label class="hamburguesa" for="nav-toggle" aria-hidden="true"><span></span><span></span><span></span></label>
+      <nav class="nav" aria-label="Navegación principal">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="menu.html" aria-current="page">Menú</a></li>
+          <li><a href="ubicacion.html">Ubicación</a></li>
+          <li><a href="tomate-una-pausa.html">Tomate una pausa</a></li>
+          <li><a href="tienda.html">Tienda</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero hero--pagina mantel" aria-labelledby="t-menu">
+      <h1 class="titulo-xl" id="t-menu">Menú</h1>
+    </section>
+
+    <section class="carta" aria-label="Carta de PAUSA">
+      <picture>
+        <source media="(min-width: 640px)" srcset="img/menu-web.png">
+        <img class="carta__img" src="img/menu-movil.jpg" width="900" height="1273"
+             alt="Carta de PAUSA. Bebidas calientes: espresso $4.500, americano $5.500, cappuccino $5.800, latte $6.000, mocha $6.900. Bebidas frías: iced coffee $5.800, cold brew $6.500, iced caramel latte $8.000, Lemon PAUSA $7.000. Para acompañar: chipá $6.500, croissant $4.500, hojaldre PAUSA $9.500, brookie $7.500.">
+      </picture>
+    </section>
+
+    <section class="bloque bloque--bordo tentate" aria-labelledby="t-tentate">
+      <div class="contenido">
+        <h2 class="titulo-xl" id="t-tentate">Tentate</h2>
+        <p class="bajada">Sabemos que buscás la foto antes de decidir qué pedir.</p>
+        <ul class="carrusel" aria-label="Fotos de lo que sirve PAUSA">
+  <li id="f1">
+    <a class="flecha flecha--ant" href="#f12" aria-label="Foto anterior">‹</a>
+    <img src="img/menu/brookie.jpg" width="1024" height="1536" loading="lazy" alt="Brookie con chocolate.">
+    <a class="flecha flecha--sig" href="#f2" aria-label="Foto siguiente">›</a>
+  </li>
+  <li id="f2">
+    <a class="flecha flecha--ant" href="#f1" aria-label="Foto anterior">‹</a>
+    <img src="img/menu/chipa.jpg" width="1024" height="1536" loading="lazy" alt="Chipá.">
+    <a class="flecha flecha--sig" href="#f3" aria-label="Foto siguiente">›</a>
+  </li>
+  <li id="f3">
+    <a class="flecha flecha--ant" href="#f2" aria-label="Foto anterior">‹</a>
+    <img src="img/menu/croissant.jpg" width="1024" height="1536" loading="lazy" alt="Croissant.">
+    <a class="flecha flecha--sig" href="#f4" aria-label="Foto siguiente">›</a>
+  </li>
+  <li id="f4">
+    <a class="flecha flecha--ant" href="#f3" aria-label="Foto anterior">‹</a>
+    <img src="img/menu/pistacho1.jpg" width="1024" height="1536" loading="lazy" alt="Hojaldre de pistacho.">
+    <a class="flecha flecha--sig" href="#f5" aria-label="Foto siguiente">›</a>
+  </li>
+  <li id="f5">
+    <a class="flecha flecha--ant" href="#f4" aria-label="Foto anterior">‹</a>
+    <img src="img/menu/ cafe.jpg" width="1024" height="1536" loading="lazy" alt="Café.">
+    <a class="flecha flecha--sig" href="#f6" aria-label="Foto siguiente">›</a>
+  </li>
+  <li id="f6">
+    <a class="flecha flecha--ant" href="#f5" aria-label="Foto anterior">‹</a>
+    <img src="img/menu/coldbrew.jpg" width="1024" height="1536" loading="lazy" alt="Cold brew.">
+    <a class="flecha flecha--sig" href="#f7" aria-label="Foto siguiente">›</a>
+  </li>
+  <li id="f7">
+    <a class="flecha flecha--ant" href="#f6" aria-label="Foto anterior">‹</a>
+    <img src="img/menu/icedlatte.jpg" width="1024" height="1536" loading="lazy" alt="Iced latte.">
+    <a class="flecha flecha--sig" href="#f8" aria-label="Foto siguiente">›</a>
+  </li>
+  <li id="f8">
+    <a class="flecha flecha--ant" href="#f7" aria-label="Foto anterior">‹</a>
+    <img src="img/menu/latte.jpg" width="1024" height="1536" loading="lazy" alt="Latte.">
+    <a class="flecha flecha--sig" href="#f9" aria-label="Foto siguiente">›</a>
+  </li>
+  <li id="f9">
+    <a class="flecha flecha--ant" href="#f8" aria-label="Foto anterior">‹</a>
+    <img src="img/menu/limonada.jpg" width="1024" height="1536" loading="lazy" alt="Limonada.">
+    <a class="flecha flecha--sig" href="#f10" aria-label="Foto siguiente">›</a>
+  </li>
+  <li id="f10">
+    <a class="flecha flecha--ant" href="#f9" aria-label="Foto anterior">‹</a>
+    <img src="img/menu/matcha.jpg" width="1024" height="1536" loading="lazy" alt="Matcha.">
+    <a class="flecha flecha--sig" href="#f11" aria-label="Foto siguiente">›</a>
+  </li>
+  <li id="f11">
+    <a class="flecha flecha--ant" href="#f10" aria-label="Foto anterior">‹</a>
+    <img src="img/menu/mesa1.jpg" width="1024" height="1536" loading="lazy" alt="Mesa de PAUSA.">
+    <a class="flecha flecha--sig" href="#f12" aria-label="Foto siguiente">›</a>
+  </li>
+  <li id="f12">
+    <a class="flecha flecha--ant" href="#f11" aria-label="Foto anterior">‹</a>
+    <img src="img/menu/mesa2.jpg" width="1024" height="1536" loading="lazy" alt="Mesa de PAUSA.">
+    <a class="flecha flecha--sig" href="#f1" aria-label="Foto siguiente">›</a>
+  </li>
+</ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p class="footer__copy">© 2026 - Martina Ghio Rivas. All rights reserved</p>
+    <nav class="footer__nav" aria-label="Navegación del pie">
+      <ul>
+        <li><a href="menu.html" aria-current="page">Menú</a></li>
+        <li><a href="ubicacion.html">Ubicación</a></li>
+        <li><a href="tomate-una-pausa.html">Tomate una pausa</a></li>
+        <li><a href="tienda.html">Tienda</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </footer>
+</body>
+</html>

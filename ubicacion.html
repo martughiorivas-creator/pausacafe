@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ubicación | PAUSA café</title>
+  <meta name="description" content="Estamos en El Salvador 5839, Palermo, CABA. Lunes a sábado de 8 a 20.">
+  <meta name="theme-color" content="#f7e493">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header__barra">
+      <a class="logo" href="index.html" aria-label="PAUSA café, ir al inicio">PAUSA</a>
+      <input class="nav-check" type="checkbox" id="nav-toggle" aria-label="Abrir o cerrar el menú">
+      <label class="hamburguesa" for="nav-toggle" aria-hidden="true"><span></span><span></span><span></span></label>
+      <nav class="nav" aria-label="Navegación principal">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="menu.html">Menú</a></li>
+          <li><a href="ubicacion.html" aria-current="page">Ubicación</a></li>
+          <li><a href="tomate-una-pausa.html">Tomate una pausa</a></li>
+          <li><a href="tienda.html">Tienda</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="bloque bloque--bordo" aria-labelledby="t-ubicacion">
+      <div class="contenido">
+        <h1 class="titulo-xl" id="t-ubicacion">Ubicación</h1>
+        <div class="ubicacion__grilla">
+          <div class="mapa">
+            <img src="img/mapa.jpg" width="1266" height="914" alt="Mapa de Palermo con la ubicación de PAUSA sobre la calle El Salvador.">
+            <svg class="mapa__pin" viewBox="0 0 24 34" aria-hidden="true"><path d="M12 0C5.4 0 0 5.2 0 11.7 0 20 12 34 12 34s12-14 12-22.3C24 5.2 18.6 0 12 0z" fill="#6b140a"/><circle cx="12" cy="11.5" r="4.4" fill="#f7e493"/></svg>
+          </div>
+          <div class="datos">
+            <strong>Estamos acá</strong>
+            <p>El Salvador 5839 - Palermo, CABA</p>
+            <p>Lunes a Sábado de 8 a 20</p>
+            <a class="boton boton--contorno" href="https://www.google.com/maps/search/?api=1&amp;query=El+Salvador+5839+Palermo+Buenos+Aires" target="_blank" rel="noopener">¿Cómo llegar?</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bloque mantel mantel--cuadros invitacion" aria-labelledby="t-invitacion">
+      <div class="contenido">
+        <h2 class="titulo-l" id="t-invitacion">Vení a tomarte una PAUSA.<br>Nosotros ponemos el café.</h2>
+        <figure class="fachada" style="margin-block:0">
+          <img src="img/fachada.jpg" width="1170" height="1553" loading="lazy" alt="Fachada de PAUSA con vidriera y marco bordó.">
+        </figure>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p class="footer__copy">© 2026 - Martina Ghio Rivas. All rights reserved</p>
+    <nav class="footer__nav" aria-label="Navegación del pie">
+      <ul>
+        <li><a href="menu.html">Menú</a></li>
+        <li><a href="ubicacion.html" aria-current="page">Ubicación</a></li>
+        <li><a href="tomate-una-pausa.html">Tomate una pausa</a></li>
+        <li><a href="tienda.html">Tienda</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </footer>
+</body>
+</html>

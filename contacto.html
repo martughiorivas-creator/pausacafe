@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contacto | PAUSA café</title>
+  <meta name="description" content="Escribinos a PAUSA café: formulario, mail, WhatsApp e Instagram.">
+  <meta name="theme-color" content="#f7e493">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header__barra">
+      <a class="logo" href="index.html" aria-label="PAUSA café, ir al inicio">PAUSA</a>
+      <input class="nav-check" type="checkbox" id="nav-toggle" aria-label="Abrir o cerrar el menú">
+      <label class="hamburguesa" for="nav-toggle" aria-hidden="true"><span></span><span></span><span></span></label>
+      <nav class="nav" aria-label="Navegación principal">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="menu.html">Menú</a></li>
+          <li><a href="ubicacion.html">Ubicación</a></li>
+          <li><a href="tomate-una-pausa.html">Tomate una pausa</a></li>
+          <li><a href="tienda.html">Tienda</a></li>
+          <li><a href="contacto.html" aria-current="page">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="mantel mantel--cuadros contacto-form" aria-labelledby="t-contacto">
+      <div class="hero hero--pagina" style="min-height:0;padding-block:6px 20px">
+        <h1 class="titulo-xl" id="t-contacto">Contacto</h1>
+      </div>
+      <div class="contacto-form__grilla">
+        <p class="contacto-form__texto">¿Tenés algo para decirnos? Una pregunta, una sugerencia, o simplemente ganas de saludar. Te leemos.</p>
+        <form class="form" action="#" method="post">
+          <label class="solo-lector" for="nombre">Nombre</label>
+          <input type="text" id="nombre" name="nombre" placeholder="Nombre" autocomplete="name">
+          <label class="solo-lector" for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="Email" autocomplete="email">
+          <label class="solo-lector" for="telefono">Teléfono</label>
+          <input type="tel" id="telefono" name="telefono" placeholder="Teléfono" autocomplete="tel">
+          <label class="solo-lector" for="mensaje">Mensaje</label>
+          <textarea id="mensaje" name="mensaje" placeholder="Mensaje"></textarea>
+          <button class="boton boton--crema" type="submit">Enviar</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="bloque bloque--bordo datos-contacto" aria-labelledby="t-datos">
+      <div class="contenido">
+        <h2 class="titulo-l" id="t-datos">Datos de contacto</h2>
+        <p class="bajada">Respondemos rápido, lo prometemos</p>
+        <div class="datos-contacto__grilla">
+          <div class="datos-contacto__foto">
+            <img src="img/cafe-latte.jpg" width="663" height="828" loading="lazy" alt="Una taza de café con latte art sobre una mesa de madera.">
+          </div>
+          <ul class="lista-contacto">
+            <li><a href="mailto:pausacafe@gmail.com">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6l9-6"/></svg>
+              pausacafe@gmail.com</a></li>
+            <li><a href="https://wa.me/5491170276895" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9l-5.05.9"/><path d="M9 10a.5.5 0 0 0 1 0v-1a.5.5 0 0 0-1 0v1a5 5 0 0 0 5 5h1a.5.5 0 0 0 0-1h-1a.5.5 0 0 0 0 1"/></svg>
+              11 7027 6895</a></li>
+            <li><a href="https://www.instagram.com/pausacafe" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="4"/><circle cx="12" cy="12" r="3"/><path d="M16.5 7.5v.01"/></svg>
+              @pausacafe</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p class="footer__copy">© 2026 - Martina Ghio Rivas. All rights reserved</p>
+    <nav class="footer__nav" aria-label="Navegación del pie">
+      <ul>
+        <li><a href="menu.html">Menú</a></li>
+        <li><a href="ubicacion.html">Ubicación</a></li>
+        <li><a href="tomate-una-pausa.html">Tomate una pausa</a></li>
+        <li><a href="tienda.html">Tienda</a></li>
+        <li><a href="contacto.html" aria-current="page">Contacto</a></li>
+      </ul>
+    </nav>
+  </footer>
+</body>
+</html>
