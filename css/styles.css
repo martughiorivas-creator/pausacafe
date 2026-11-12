@@ -1,0 +1,576 @@
+
+/* ---------- Tipografía: Poppins (archivos locales en /fonts) ---------- */
+@font-face { font-family: "Poppins"; font-weight: 300; font-style: normal; font-display: swap; src: url("../fonts/poppins-latin-300-normal.woff2") format("woff2"); }
+@font-face { font-family: "Poppins"; font-weight: 400; font-style: normal; font-display: swap; src: url("../fonts/poppins-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Poppins"; font-weight: 500; font-style: normal; font-display: swap; src: url("../fonts/poppins-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family: "Poppins"; font-weight: 600; font-style: normal; font-display: swap; src: url("../fonts/poppins-latin-600-normal.woff2") format("woff2"); }
+@font-face { font-family: "Poppins"; font-weight: 700; font-style: normal; font-display: swap; src: url("../fonts/poppins-latin-700-normal.woff2") format("woff2"); }
+@font-face { font-family: "Poppins"; font-weight: 800; font-style: normal; font-display: swap; src: url("../fonts/poppins-latin-800-normal.woff2") format("woff2"); }
+
+/* ---------- Variables (colores y medidas) ---------- */
+:root {
+  --bordo: #6b140a;
+  --crema: #f7e493;
+  --fuente: "Poppins", system-ui, sans-serif;
+  --radio: 22px;
+  --ancho-max: 1100px;
+  --alto-header: 46px;
+}
+
+/* ---------- Reset básico ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  font-family: var(--fuente);
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--crema);
+  background: var(--bordo);
+}
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+h1, h2, h3, p { margin: 0; }
+
+.solo-lector { 
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap;
+}
+
+/* ---------- Títulos grandes ---------- */
+.titulo-xl {
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.045em;
+  text-transform: uppercase;
+  font-size: clamp(2.6rem, 14vw, 9rem);
+  color: var(--crema);
+}
+.titulo-l {
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+  font-size: clamp(1.7rem, 7.2vw, 2.9rem);
+  color: var(--crema);
+}
+.bajada {
+  font-weight: 400;
+  font-size: clamp(0.95rem, 3.6vw, 1.15rem);
+  line-height: 1.45;
+  max-width: 36em;
+  margin-inline: auto;
+}
+
+/* ==========================================================
+   HEADER + NAVEGACIÓN
+   ========================================================== */
+.header {
+  position: sticky; top: 0; z-index: 20;
+  background: var(--crema);
+  color: var(--bordo);
+  min-height: var(--alto-header);
+}
+.header__barra {
+  display: flex; align-items: center; justify-content: space-between;
+  max-width: 1400px; margin-inline: auto;
+  padding: 0 20px; min-height: var(--alto-header);
+}
+.logo {
+  font-weight: 800; font-size: 1.55rem; letter-spacing: -0.05em;
+  text-decoration: none; text-transform: uppercase; line-height: 1;
+}
+
+
+.nav-check { position: absolute; opacity: 0; pointer-events: none; }
+.hamburguesa {
+  display: grid; gap: 5px; cursor: pointer; padding: 10px 0 10px 10px;
+}
+.hamburguesa span { display: block; width: 32px; height: 3px; background: var(--bordo); border-radius: 2px; transition: transform .25s, opacity .25s; }
+.nav-check:focus-visible + .hamburguesa { outline: 2px solid var(--bordo); outline-offset: 4px; }
+.nav-check:checked + .hamburguesa span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.nav-check:checked + .hamburguesa span:nth-child(2) { opacity: 0; }
+.nav-check:checked + .hamburguesa span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+.nav {
+  display: none;
+  position: absolute; left: 0; right: 0; top: 100%;
+  background: var(--crema);
+  border-top: 1px solid rgb(107 20 10 / .25);
+  box-shadow: 0 10px 20px rgb(0 0 0 / .18);
+}
+.nav-check:checked ~ .nav { display: block; }
+.nav ul { list-style: none; margin: 0; padding: 8px 20px 16px; }
+.nav a {
+  display: block; padding: 12px 0;
+  font-weight: 600; font-size: 1.05rem; text-transform: uppercase;
+  letter-spacing: -0.02em; text-decoration: none; color: var(--bordo);
+}
+.nav a[aria-current="page"] { text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 2px; }
+.nav a:hover { text-decoration: underline; text-underline-offset: 6px; }
+
+/* ==========================================================
+   FOOTER
+   ========================================================== */
+.footer {
+  background: var(--crema); color: var(--bordo);
+  padding: 14px 20px 18px;
+  text-align: center;
+}
+.footer__copy { font-size: .72rem; font-weight: 400; letter-spacing: -0.01em; margin-bottom: 8px; }
+.footer__nav ul { list-style: none; margin: 0; padding: 0; display: flex; justify-content: center; flex-wrap: wrap; }
+.footer__nav li + li { border-left: 2px solid var(--bordo); }
+.footer__nav a {
+  display: block; padding: 2px 14px; font-size: .88rem; font-weight: 400;
+  text-transform: uppercase; text-decoration: none; letter-spacing: -0.02em;
+}
+.footer__nav a:hover, .footer__nav a[aria-current="page"] { font-weight: 600; }
+
+/* ==========================================================
+   BLOQUES REUTILIZABLES
+   ========================================================== */
+.bloque { padding: 44px 20px; text-align: center; }
+.bloque--bordo { background: var(--bordo); color: var(--crema); }
+.bloque--crema { background: var(--crema); color: var(--bordo); }
+.contenido { max-width: var(--ancho-max); margin-inline: auto; }
+
+/* fondo de mantel a cuadros */
+.mantel {
+  background: #4a0d08 url("../img/mantel.jpg") center / cover;
+  position: relative;
+}
+.mantel--cuadros { background-size: 440px auto; background-repeat: repeat; }
+
+/* franja crema fina entre secciones */
+.franja { height: 10px; background: var(--crema); }
+
+/* botones */
+.boton {
+  display: inline-block;
+  font-family: var(--fuente); font-weight: 700; font-size: .95rem;
+  text-transform: uppercase; letter-spacing: -0.02em; text-decoration: none;
+  padding: 11px 36px; border-radius: 14px; cursor: pointer; border: 2px solid transparent;
+  transition: transform .15s, background-color .15s, color .15s;
+}
+.boton--crema { background: var(--crema); color: var(--bordo); }
+.boton--crema:hover { transform: translateY(-2px); background: #fff3b8; }
+.boton--contorno { border-color: var(--crema); color: var(--crema); background: transparent; }
+.boton--contorno:hover { background: var(--crema); color: var(--bordo); }
+.boton:focus-visible { outline: 3px solid var(--crema); outline-offset: 3px; }
+
+/* ==========================================================
+   HOME
+   ========================================================== */
+.hero {
+  display: grid; place-items: center; text-align: center;
+  min-height: 250px; padding: 30px 20px 26px;
+}
+.hero__logo { text-align: center; }
+.hero__logo .titulo-xl { font-size: clamp(4rem, 27vw, 13rem); }
+.hero__cafe { font-weight: 300; font-size: clamp(1.1rem, 4.5vw, 1.8rem); letter-spacing: -0.02em; margin-top: -4px; color: var(--crema); }
+.hero--pagina { min-height: 190px; }
+
+.presentacion { padding-block: 40px; }
+.presentacion .titulo-l { margin-bottom: 14px; }
+
+.foto-ancha img { width: 100%; height: clamp(240px, 47vw, 680px); object-fit: cover; object-position: 55% 62%; }
+.foto-ancha img,
+.foto-ancha video {
+  width: 100%;
+  height: clamp(240px, 47vw, 680px);
+  object-fit: cover;
+  object-position: 55% 62%;
+}
+.intriga .titulo-l { margin-bottom: 18px; }
+.intriga .bajada { margin-bottom: 14px; }
+.intriga .descubri { font-weight: 500; margin-bottom: 26px; }
+
+/* ==========================================================
+   MENÚ
+   ========================================================== */
+.carta { background: var(--crema); padding: 26px 0; }
+.carta img { margin-inline: auto; width: 100%; max-width: 560px; }
+.carta__web { display: none; }
+
+.tentate .titulo-xl { font-size: clamp(3rem, 15vw, 7.5rem); margin-bottom: 8px; }
+.tentate .bajada { margin-bottom: 28px; }
+
+
+.carrusel {
+  display: flex; gap: 16px; list-style: none; margin: 0 auto; padding: 0;
+  max-width: 560px; overflow-x: auto; scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+.carrusel::-webkit-scrollbar { display: none; }
+.carrusel li { flex: 0 0 100%; scroll-snap-align: center; position: relative; }
+.carrusel img {
+  width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: 50% 58%;
+  border-radius: var(--radio);
+}
+
+.flecha {
+  position: absolute; top: 50%; transform: translateY(-50%); z-index: 1;
+  width: 44px; height: 44px; border-radius: 50%;
+  display: grid; place-items: center;
+  background: var(--crema); color: var(--bordo);
+  font-size: 2rem; line-height: 1; padding-bottom: 4px;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgb(0 0 0 / .3);
+}
+.flecha--ant { left: 14px; }
+.flecha--sig { right: 14px; }
+.flecha:hover { transform: translateY(-50%) scale(1.08); }
+
+/* ==========================================================
+   UBICACIÓN
+   ========================================================== */
+.ubicacion__grilla { display: grid; gap: 28px; align-items: center; margin-top: 26px; }
+.mapa { position: relative; max-width: 420px; margin-inline: auto; width: 100%; }
+.mapa img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 18px; }
+.mapa__pin {
+  position: absolute; left: 42%; top: 22%; width: 34px; height: auto; transform: translate(-50%, -4px);
+  filter: drop-shadow(0 3px 3px rgb(0 0 0 / .3));
+}
+.datos strong { display: block; font-weight: 700; font-size: 1.05rem; margin-bottom: 4px; letter-spacing: -0.02em; text-transform: uppercase; }
+.datos p { font-weight: 400; font-size: 1.05rem; line-height: 1.5; }
+.datos .boton { margin-top: 20px; }
+
+.invitacion .titulo-l { color: var(--crema); text-shadow: 0 2px 10px rgb(60 8 4 / .55); margin-bottom: 26px; }
+.fachada img {
+  width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: 50% 50%;
+  border-radius: var(--radio);
+}
+.fachada img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: 50% 52%; border-radius: var(--radio); }
+
+/* ==========================================================
+   TOMATE UNA PAUSA
+   ========================================================== */
+.pausa-intro .titulo-xl { font-size: clamp(2.6rem, 13vw, 6rem); margin-bottom: 22px; }
+.pausa-intro .bajada { font-size: clamp(.95rem, 3.4vw, 1.1rem); }
+.pausa-intro b { font-weight: 700; }
+
+.cuaderno { padding: 40px 20px; }
+.cuaderno__grilla { display: grid; grid-template-columns: minmax(110px, 36%) 1fr; gap: 18px; align-items: center; max-width: 820px; margin-inline: auto; }
+.cuaderno__grilla img { width: 100%; filter: drop-shadow(0 12px 14px rgb(0 0 0 / .4)); }
+.cuaderno__texto { text-align: left; }
+.cuaderno__texto h2 { font-size: clamp(1.15rem, 5vw, 2rem); font-weight: 700; letter-spacing: -0.035em; text-transform: uppercase; margin-bottom: 10px; }
+.cuaderno__texto p { font-size: clamp(.8rem, 3vw, 1rem); line-height: 1.45; margin-bottom: 8px; }
+.cuaderno__texto b { font-weight: 700; }
+.cuaderno__texto .disponible { font-weight: 700; font-size: clamp(.75rem, 2.8vw, .95rem); }
+
+.gracias .titulo-l { text-transform: uppercase; font-size: clamp(1.7rem, 7.4vw, 3.3rem); line-height: 1; margin-bottom: 16px; }
+.gracias .bajada { font-size: clamp(.85rem, 3.2vw, 1.05rem); margin-bottom: 34px; }
+.tarjetas { list-style: none; margin: 0 auto; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; max-width: 1100px; }
+.tarjeta {
+  background: var(--crema); color: var(--bordo);
+  border-radius: 14px; padding: 14px 10px; min-height: 84px;
+  display: grid; place-items: center; text-align: center;
+  font-weight: 500; font-size: clamp(.72rem, 2.9vw, 1.05rem); line-height: 1.25; letter-spacing: -0.02em;
+}
+
+/* ==========================================================
+   CONTACTO
+   ========================================================== */
+.contacto-form { padding: 36px 20px 48px; }
+.contacto-form__grilla { display: grid; gap: 22px; max-width: 520px; margin-inline: auto; }
+.contacto-form__texto { font-weight: 600; font-size: clamp(.95rem, 3.6vw, 1.15rem); line-height: 1.35; letter-spacing: -0.02em; }
+.form { display: grid; gap: 10px; text-align: left; }
+.form input, .form textarea {
+  width: 100%; font-family: var(--fuente); font-size: .95rem; font-weight: 500;
+  color: var(--bordo); background: var(--crema);
+  border: 2px solid transparent; border-radius: 0; padding: 9px 12px;
+}
+.form textarea { min-height: 120px; resize: vertical; }
+.form ::placeholder { color: var(--bordo); opacity: .85; }
+.form input:focus, .form textarea:focus { outline: none; border-color: var(--bordo); box-shadow: 0 0 0 3px rgb(247 228 147 / .8); }
+.form .boton { justify-self: start; border-radius: 0; padding: 7px 18px; font-size: .85rem; }
+
+.datos-contacto .titulo-l { font-size: clamp(2rem, 9.4vw, 4rem); text-transform: uppercase; font-weight: 800; letter-spacing: -0.045em; margin-bottom: 8px; }
+.datos-contacto__grilla { display: grid; gap: 28px; align-items: center; margin-top: 30px; max-width: 880px; margin-inline: auto; }
+.datos-contacto__foto img { width: 100%; max-width: 380px; margin-inline: auto; aspect-ratio: 4 / 3.4; object-fit: cover; border-radius: 30px; }
+.lista-contacto { list-style: none; margin: 0 auto; padding: 0; display: grid; gap: 18px; justify-items: start; }
+.lista-contacto a { display: flex; align-items: center; gap: 14px; font-weight: 700; font-size: 1rem; text-decoration: none; letter-spacing: -0.01em; }
+.lista-contacto a:hover { text-decoration: underline; text-underline-offset: 5px; }
+.lista-contacto svg { width: 30px; height: 30px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+
+/* ==========================================================
+   TABLET Y COMPU
+   ========================================================== */
+@media (min-width: 640px) {
+  .carta__movil { display: none; }
+  .carta__web { display: block; }
+  .carta { padding: 0; }
+  .carta img { max-width: 1366px; }
+  .tarjetas { grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .tarjeta { min-height: 78px; padding: 16px 14px; }
+  .cuaderno__grilla { gap: 34px; }
+  .ubicacion__grilla { grid-template-columns: 1fr 1fr; gap: 40px; }
+  .contacto-form__grilla { grid-template-columns: 1fr 1fr; max-width: 900px; align-items: center; gap: 36px; }
+  .datos-contacto__grilla { grid-template-columns: 1fr 1fr; gap: 50px; }
+  .datos-contacto__foto img { margin-inline: 0 auto; }
+  .lista-contacto { justify-self: start; }
+}
+
+@media (min-width: 900px) {
+  :root { --alto-header: 52px; }
+  .hamburguesa { display: none; }
+  .nav { display: block; position: static; background: none; border: 0; box-shadow: none; }
+  .nav ul { display: flex; gap: 26px; padding: 0; }
+  .nav a { padding: 4px 0; font-size: .82rem; font-weight: 700; }
+  .footer { display: flex; align-items: center; justify-content: space-between; padding: 16px 40px; text-align: left; max-width: none; }
+  .footer__copy { margin: 0; font-size: .75rem; }
+  .footer__nav a { font-size: .9rem; padding: 2px 16px; }
+  .bloque { padding-block: 64px; }
+  .hero { min-height: 340px; }
+  .hero--pagina { min-height: 250px; }
+  .mantel--cuadros { background-size: 560px auto; }
+  .cuaderno { padding-block: 56px; }
+  .cuaderno__grilla { grid-template-columns: minmax(150px, 220px) 1fr; }
+  .cuaderno__texto { padding-right: 20px; }
+  .tentate { padding-bottom: 70px; }
+}
+
+/* respeta a quien prefiere menos movimiento */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+}
+
+/* ==========================================================
+   TIENDA
+   ========================================================== */
+.productos .titulo-l { text-transform: uppercase; font-weight: 800; letter-spacing: -0.04em; font-size: clamp(1.9rem, 7.4vw, 3.3rem); line-height: 1; margin-bottom: 14px; }
+.productos .bajada { margin-bottom: 32px; }
+
+.productos__grilla { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+.producto { background: var(--crema); color: var(--bordo); border-radius: var(--radio); padding: 12px 12px 18px; display: flex; flex-direction: column; text-align: center; }
+.producto__foto { aspect-ratio: 1 / 1; border-radius: calc(var(--radio) - 8px); overflow: hidden; background: #efd97a; display: grid; place-items: center; margin-bottom: 12px; }
+.producto__foto img { width: 100%; height: 100%; object-fit: cover; }
+.producto__foto img[src$=".png"] { width: auto; max-width: 62%; height: 88%; object-fit: contain; }
+.producto__nombre { font-size: 1rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 6px; }
+.producto__desc { font-size: .82rem; line-height: 1.4; margin-bottom: 10px; flex: 1; }
+.producto__precio { font-weight: 800; font-size: 1.15rem; margin-bottom: 12px; }
+.producto .boton { align-self: center; font-size: .78rem; padding: 12px 16px; background: var(--bordo); color: var(--crema); }
+.producto .boton:hover { background: #8a1c10; }
+
+.boton--bordo { background: var(--bordo); color: var(--crema); }
+.boton--bordo:hover { transform: translateY(-2px); background: #8a1c10; }
+
+/* carrito (solo visual) */
+.carrito .titulo-l { color: var(--bordo); text-transform: uppercase; font-weight: 800; letter-spacing: -0.04em; font-size: clamp(1.9rem, 7.4vw, 3.3rem); line-height: 1; margin-bottom: 26px; }
+.carrito__lista { list-style: none; margin: 0 auto; padding: 0; max-width: 720px; display: grid; gap: 12px; }
+.carrito__item { display: grid; grid-template-columns: 64px 1fr auto; grid-template-areas: "foto info precio" "foto cant cant"; gap: 6px 14px; align-items: center; text-align: left; padding: 12px; border: 2px solid var(--bordo); border-radius: 18px; }
+.carrito__item img { grid-area: foto; width: 64px; height: 64px; object-fit: cover; border-radius: 12px; background: #efd97a; }
+.carrito__item img[src$=".png"] { object-fit: contain; }
+.carrito__info { grid-area: info; }
+.carrito__nombre { font-weight: 700; font-size: .95rem; }
+.carrito__unitario { font-size: .8rem; opacity: .8; }
+.carrito__precio { grid-area: precio; font-weight: 800; }
+.cantidad { grid-area: cant; display: inline-flex; align-items: center; gap: 12px; justify-self: start; border: 2px solid var(--bordo); border-radius: 999px; padding: 2px 6px; }
+.cantidad button { width: 28px; height: 28px; border: 0; background: none; color: var(--bordo); font: inherit; font-size: 1.2rem; font-weight: 700; cursor: pointer; border-radius: 50%; }
+.cantidad button:hover { background: rgb(107 20 10 / .12); }
+.cantidad span { min-width: 1ch; font-weight: 700; }
+
+.carrito__total { max-width: 720px; margin: 22px auto 20px; display: flex; justify-content: space-between; align-items: baseline; font-weight: 700; font-size: 1.1rem; padding-top: 16px; border-top: 2px solid var(--bordo); }
+.carrito__monto { font-weight: 800; font-size: 1.6rem; letter-spacing: -0.02em; }
+.carrito__nota { margin-top: 18px; font-size: .85rem; }
+
+@media (min-width: 640px) {
+  .productos__grilla { grid-template-columns: repeat(4, 1fr); gap: 18px; }
+  .producto__nombre { font-size: 1.05rem; }
+  .carrito__item { grid-template-columns: 76px 1fr auto auto; grid-template-areas: "foto info cant precio"; gap: 16px; }
+  .carrito__item img { width: 76px; height: 76px; }
+  .carrito__precio { min-width: 90px; text-align: right; }
+}
+
+
+/* ==========================================================
+   CARRITO SIN JAVASCRIPT (tienda.html)
+   Cada producto tiene botones de opción ocultos: q1-0, q1-1, q1-2, q1-3...
+   (0, 1, 2 o 3 unidades). El CSS usa :has() para mostrar lo que corresponde.
+   Los precios son múltiplos de $1.000 para poder sumar el total con contadores CSS.
+   ========================================================== */
+
+/* inputs ocultos (siguen siendo accesibles con el teclado) */
+.sr { position: absolute; width: 1px; height: 1px; opacity: 0; overflow: hidden; pointer-events: none; }
+
+/* ---------- tarjetas de producto ---------- */
+.producto .boton { cursor: pointer; display: inline-block; }
+.producto .en-carrito { display: none; background: transparent; color: var(--bordo); border: 2px solid var(--bordo); }
+.producto .en-carrito:hover { background: var(--bordo); color: var(--crema); }
+.producto { scroll-margin-top: 80px; }
+
+/* ---------- carrito ---------- */
+.carrito { counter-reset: tot 0; scroll-margin-top: 52px; }
+.carrito__lista { list-style: none; margin: 0 auto; padding: 0; max-width: 720px; display: grid; gap: 12px; }
+.item { display: none; grid-template-columns: 64px 1fr auto; grid-template-areas: "foto info precio" "foto cant cant"; gap: 6px 14px; align-items: center; text-align: left; padding: 12px; border: 2px solid var(--bordo); border-radius: 18px; }
+.item img { grid-area: foto; width: 64px; height: 64px; object-fit: cover; border-radius: 12px; background: #efd97a; }
+.item img[src$=".png"] { object-fit: contain; }
+.item__info { grid-area: info; }
+.item__nombre { font-weight: 700; font-size: .95rem; }
+.item__unitario { font-size: .8rem; opacity: .8; }
+.item__quitar { font-size: .78rem; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.item__quitar:hover { opacity: .7; }
+.item__precio { grid-area: precio; font-weight: 800; }
+.cant { grid-area: cant; display: none; align-items: center; gap: 4px; justify-self: start; border: 2px solid var(--bordo); border-radius: 999px; padding: 2px 6px; }
+.cant label, .cant .tope { width: 28px; height: 28px; display: grid; place-items: center; font-size: 1.2rem; font-weight: 700; border-radius: 50%; cursor: pointer; user-select: none; }
+.cant label:hover { background: rgb(107 20 10 / .12); }
+.cant .tope { opacity: .3; cursor: not-allowed; }
+.cant > span:not(.tope) { min-width: 2ch; text-align: center; font-weight: 700; }
+.pp { display: none; }
+
+.vacio { display: none; margin: 0 auto 6px; max-width: 720px; font-size: 1rem; }
+.carrito__pie { max-width: 720px; margin: 0 auto; }
+.carrito__total { max-width: 720px; margin: 22px auto 20px; display: flex; justify-content: space-between; align-items: baseline; font-weight: 700; font-size: 1.1rem; padding-top: 16px; border-top: 2px solid currentColor; }
+.carrito__monto, .monto2, .monto3 { font-weight: 800; font-size: 1.6rem; letter-spacing: -0.02em; }
+.carrito .boton, .paso .boton { cursor: pointer; }
+.carrito__nota { margin-top: 18px; font-size: .85rem; }
+
+/* ---------- pasos: Último paso y Gracias ---------- */
+.paso { display: none; scroll-margin-top: 52px; text-align: center; }
+.paso .titulo-l { text-transform: uppercase; font-weight: 800; letter-spacing: -0.04em; font-size: clamp(1.9rem, 7.4vw, 3.3rem); line-height: 1; margin-bottom: 14px; }
+.paso .bajada { margin-bottom: 26px; }
+#compra { counter-reset: tot2 0; }
+#compra .titulo-l { color: var(--bordo); }
+#gracias { counter-reset: tot3 0; }
+.resumen { list-style: none; margin: 0 auto; padding: 0; max-width: 720px; display: grid; gap: 10px; }
+.res, .fin { display: none; justify-content: space-between; gap: 16px; text-align: left; padding: 14px 16px; border: 2px solid currentColor; border-radius: 16px; font-weight: 600; }
+.res__precio { font-weight: 800; }
+.r-q { display: none; margin-left: 6px; opacity: .8; font-weight: 500; }
+.paso__botones { display: flex; flex-wrap: wrap; gap: 14px 20px; justify-content: center; align-items: center; }
+.volver { text-decoration: underline; text-underline-offset: 4px; font-weight: 600; }
+
+/* ==========================================================
+   LÓGICA DE ESTADOS
+   ========================================================== */
+/* producto 1: Cuaderno de journaling */
+.app:has(#q1-0:not(:checked)) .p-1 .add { display: none; }
+.app:has(#q1-0:not(:checked)) .p-1 .en-carrito { display: inline-block; }
+.app:has(#q1-0:not(:checked)) .item-1 { display: grid; }
+.app:has(#q1-0:not(:checked)) .res-1, .app:has(#q1-0:not(:checked)) .fin-1 { display: flex; }
+.app:has(#q1-1:checked) .item-1 { counter-increment: tot 18; }
+.app:has(#q1-1:checked) .res-1 { counter-increment: tot2 18; }
+.app:has(#q1-1:checked) .fin-1 { counter-increment: tot3 18; }
+.app:has(#q1-1:checked) .item-1 .cant-1 { display: inline-flex; }
+.app:has(#q1-1:checked) .item-1 .pp-1, .app:has(#q1-1:checked) .res-1 .pp-1, .app:has(#q1-1:checked) .fin-1 .pp-1 { display: inline; }
+.app:has(#q1-1:checked) .res-1 .r-q1, .app:has(#q1-1:checked) .fin-1 .r-q1 { display: inline; }
+.app:has(#q1-2:checked) .item-1 { counter-increment: tot 36; }
+.app:has(#q1-2:checked) .res-1 { counter-increment: tot2 36; }
+.app:has(#q1-2:checked) .fin-1 { counter-increment: tot3 36; }
+.app:has(#q1-2:checked) .item-1 .cant-2 { display: inline-flex; }
+.app:has(#q1-2:checked) .item-1 .pp-2, .app:has(#q1-2:checked) .res-1 .pp-2, .app:has(#q1-2:checked) .fin-1 .pp-2 { display: inline; }
+.app:has(#q1-2:checked) .res-1 .r-q2, .app:has(#q1-2:checked) .fin-1 .r-q2 { display: inline; }
+.app:has(#q1-3:checked) .item-1 { counter-increment: tot 54; }
+.app:has(#q1-3:checked) .res-1 { counter-increment: tot2 54; }
+.app:has(#q1-3:checked) .fin-1 { counter-increment: tot3 54; }
+.app:has(#q1-3:checked) .item-1 .cant-3 { display: inline-flex; }
+.app:has(#q1-3:checked) .item-1 .pp-3, .app:has(#q1-3:checked) .res-1 .pp-3, .app:has(#q1-3:checked) .fin-1 .pp-3 { display: inline; }
+.app:has(#q1-3:checked) .res-1 .r-q3, .app:has(#q1-3:checked) .fin-1 .r-q3 { display: inline; }
+
+/* producto 2: Tote bag */
+.app:has(#q2-0:not(:checked)) .p-2 .add { display: none; }
+.app:has(#q2-0:not(:checked)) .p-2 .en-carrito { display: inline-block; }
+.app:has(#q2-0:not(:checked)) .item-2 { display: grid; }
+.app:has(#q2-0:not(:checked)) .res-2, .app:has(#q2-0:not(:checked)) .fin-2 { display: flex; }
+.app:has(#q2-1:checked) .item-2 { counter-increment: tot 15; }
+.app:has(#q2-1:checked) .res-2 { counter-increment: tot2 15; }
+.app:has(#q2-1:checked) .fin-2 { counter-increment: tot3 15; }
+.app:has(#q2-1:checked) .item-2 .cant-1 { display: inline-flex; }
+.app:has(#q2-1:checked) .item-2 .pp-1, .app:has(#q2-1:checked) .res-2 .pp-1, .app:has(#q2-1:checked) .fin-2 .pp-1 { display: inline; }
+.app:has(#q2-1:checked) .res-2 .r-q1, .app:has(#q2-1:checked) .fin-2 .r-q1 { display: inline; }
+.app:has(#q2-2:checked) .item-2 { counter-increment: tot 30; }
+.app:has(#q2-2:checked) .res-2 { counter-increment: tot2 30; }
+.app:has(#q2-2:checked) .fin-2 { counter-increment: tot3 30; }
+.app:has(#q2-2:checked) .item-2 .cant-2 { display: inline-flex; }
+.app:has(#q2-2:checked) .item-2 .pp-2, .app:has(#q2-2:checked) .res-2 .pp-2, .app:has(#q2-2:checked) .fin-2 .pp-2 { display: inline; }
+.app:has(#q2-2:checked) .res-2 .r-q2, .app:has(#q2-2:checked) .fin-2 .r-q2 { display: inline; }
+.app:has(#q2-3:checked) .item-2 { counter-increment: tot 45; }
+.app:has(#q2-3:checked) .res-2 { counter-increment: tot2 45; }
+.app:has(#q2-3:checked) .fin-2 { counter-increment: tot3 45; }
+.app:has(#q2-3:checked) .item-2 .cant-3 { display: inline-flex; }
+.app:has(#q2-3:checked) .item-2 .pp-3, .app:has(#q2-3:checked) .res-2 .pp-3, .app:has(#q2-3:checked) .fin-2 .pp-3 { display: inline; }
+.app:has(#q2-3:checked) .res-2 .r-q3, .app:has(#q2-3:checked) .fin-2 .r-q3 { display: inline; }
+
+/* producto 3: Gorra */
+.app:has(#q3-0:not(:checked)) .p-3 .add { display: none; }
+.app:has(#q3-0:not(:checked)) .p-3 .en-carrito { display: inline-block; }
+.app:has(#q3-0:not(:checked)) .item-3 { display: grid; }
+.app:has(#q3-0:not(:checked)) .res-3, .app:has(#q3-0:not(:checked)) .fin-3 { display: flex; }
+.app:has(#q3-1:checked) .item-3 { counter-increment: tot 17; }
+.app:has(#q3-1:checked) .res-3 { counter-increment: tot2 17; }
+.app:has(#q3-1:checked) .fin-3 { counter-increment: tot3 17; }
+.app:has(#q3-1:checked) .item-3 .cant-1 { display: inline-flex; }
+.app:has(#q3-1:checked) .item-3 .pp-1, .app:has(#q3-1:checked) .res-3 .pp-1, .app:has(#q3-1:checked) .fin-3 .pp-1 { display: inline; }
+.app:has(#q3-1:checked) .res-3 .r-q1, .app:has(#q3-1:checked) .fin-3 .r-q1 { display: inline; }
+.app:has(#q3-2:checked) .item-3 { counter-increment: tot 34; }
+.app:has(#q3-2:checked) .res-3 { counter-increment: tot2 34; }
+.app:has(#q3-2:checked) .fin-3 { counter-increment: tot3 34; }
+.app:has(#q3-2:checked) .item-3 .cant-2 { display: inline-flex; }
+.app:has(#q3-2:checked) .item-3 .pp-2, .app:has(#q3-2:checked) .res-3 .pp-2, .app:has(#q3-2:checked) .fin-3 .pp-2 { display: inline; }
+.app:has(#q3-2:checked) .res-3 .r-q2, .app:has(#q3-2:checked) .fin-3 .r-q2 { display: inline; }
+.app:has(#q3-3:checked) .item-3 { counter-increment: tot 51; }
+.app:has(#q3-3:checked) .res-3 { counter-increment: tot2 51; }
+.app:has(#q3-3:checked) .fin-3 { counter-increment: tot3 51; }
+.app:has(#q3-3:checked) .item-3 .cant-3 { display: inline-flex; }
+.app:has(#q3-3:checked) .item-3 .pp-3, .app:has(#q3-3:checked) .res-3 .pp-3, .app:has(#q3-3:checked) .fin-3 .pp-3 { display: inline; }
+.app:has(#q3-3:checked) .res-3 .r-q3, .app:has(#q3-3:checked) .fin-3 .r-q3 { display: inline; }
+
+/* producto 4: Taza de cerámica */
+.app:has(#q4-0:not(:checked)) .p-4 .add { display: none; }
+.app:has(#q4-0:not(:checked)) .p-4 .en-carrito { display: inline-block; }
+.app:has(#q4-0:not(:checked)) .item-4 { display: grid; }
+.app:has(#q4-0:not(:checked)) .res-4, .app:has(#q4-0:not(:checked)) .fin-4 { display: flex; }
+.app:has(#q4-1:checked) .item-4 { counter-increment: tot 12; }
+.app:has(#q4-1:checked) .res-4 { counter-increment: tot2 12; }
+.app:has(#q4-1:checked) .fin-4 { counter-increment: tot3 12; }
+.app:has(#q4-1:checked) .item-4 .cant-1 { display: inline-flex; }
+.app:has(#q4-1:checked) .item-4 .pp-1, .app:has(#q4-1:checked) .res-4 .pp-1, .app:has(#q4-1:checked) .fin-4 .pp-1 { display: inline; }
+.app:has(#q4-1:checked) .res-4 .r-q1, .app:has(#q4-1:checked) .fin-4 .r-q1 { display: inline; }
+.app:has(#q4-2:checked) .item-4 { counter-increment: tot 24; }
+.app:has(#q4-2:checked) .res-4 { counter-increment: tot2 24; }
+.app:has(#q4-2:checked) .fin-4 { counter-increment: tot3 24; }
+.app:has(#q4-2:checked) .item-4 .cant-2 { display: inline-flex; }
+.app:has(#q4-2:checked) .item-4 .pp-2, .app:has(#q4-2:checked) .res-4 .pp-2, .app:has(#q4-2:checked) .fin-4 .pp-2 { display: inline; }
+.app:has(#q4-2:checked) .res-4 .r-q2, .app:has(#q4-2:checked) .fin-4 .r-q2 { display: inline; }
+.app:has(#q4-3:checked) .item-4 { counter-increment: tot 36; }
+.app:has(#q4-3:checked) .res-4 { counter-increment: tot2 36; }
+.app:has(#q4-3:checked) .fin-4 { counter-increment: tot3 36; }
+.app:has(#q4-3:checked) .item-4 .cant-3 { display: inline-flex; }
+.app:has(#q4-3:checked) .item-4 .pp-3, .app:has(#q4-3:checked) .res-4 .pp-3, .app:has(#q4-3:checked) .fin-4 .pp-3 { display: inline; }
+.app:has(#q4-3:checked) .res-4 .r-q3, .app:has(#q4-3:checked) .fin-4 .r-q3 { display: inline; }
+
+/* totales (suman los contadores de arriba) */
+.carrito__monto::after { content: "$" counter(tot) ".000"; }
+.monto2::after { content: "$" counter(tot2) ".000"; }
+.monto3::after { content: "$" counter(tot3) ".000"; }
+
+/* carrito vacío */
+.app:has(#q1-0:checked):has(#q2-0:checked):has(#q3-0:checked):has(#q4-0:checked) .vacio { display: block; }
+.app:has(#q1-0:checked):has(#q2-0:checked):has(#q3-0:checked):has(#q4-0:checked) .carrito__pie { display: none; }
+
+/* pasos: se activan con el link (#compra, #gracias) */
+.app:has(#compra:target) .productos,
+.app:has(#compra:target) .carrito,
+.app:has(#gracias:target) .productos,
+.app:has(#gracias:target) .carrito { display: none; }
+.app:has(#compra:target) #compra { display: block; }
+.app:has(#gracias:target) #gracias { display: block; }
+
+/* ---------- tablet y compu ---------- */
+@media (min-width: 640px) {
+  .item { grid-template-columns: 76px 1fr auto auto; grid-template-areas: "foto info cant precio"; gap: 16px; }
+  .item img { width: 76px; height: 76px; }
+  .item__precio { min-width: 90px; text-align: right; }
+}
+
+/* ---------- ÍCONOS ---------- */
+.ico { display: inline-block; flex: none; width: 1.15em; height: 1.15em; margin-right: .5em; vertical-align: -0.2em; background: currentColor; -webkit-mask: var(--i) center / contain no-repeat; mask: var(--i) center / contain no-repeat; }
+.ico--grande { display: block; width: 56px; height: 56px; margin: 0 auto 12px; }
+
+.ico-cart  { --i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='8' cy='21' r='1'/%3E%3Ccircle cx='19' cy='21' r='1'/%3E%3Cpath d='M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12'/%3E%3C/svg%3E"); }
+.ico-bag   { --i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z'/%3E%3Cpath d='M3 6h18'/%3E%3Cpath d='M16 10a4 4 0 0 1-8 0'/%3E%3C/svg%3E"); }
+.ico-check { --i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E"); }
+.ico-ok    { --i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='m9 12 2 2 4-4'/%3E%3C/svg%3E"); }
+.ico-trash { --i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 6h18'/%3E%3Cpath d='M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6'/%3E%3Cpath d='M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2'/%3E%3Cpath d='M10 11v6M14 11v6'/%3E%3C/svg%3E"); }
+.ico-back  { --i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M19 12H5'/%3E%3Cpath d='m12 19-7-7 7-7'/%3E%3C/svg%3E"); }
+.ico-pin   { --i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z'/%3E%3Ccircle cx='12' cy='10' r='3'/%3E%3C/svg%3E"); }
